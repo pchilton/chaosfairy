@@ -4,12 +4,16 @@
 
 ```mermaid
 graph TD
-    %% Client Tier
+    %% Cloudflare
     subgraph ClientInterfaces [Client Interfaces]
-        Web[Web App<br>SolidJS / Static Export]
-        PWA[PWA Web App<br>SolidJS / Static Export]
-        Android[Android App<br>React Native / Kotlin]
-        iOS[iOS App<br>React Native / Swift]
+        Web[Web App<br>React Static Export]
+        PWA[PWA Web App<br>React Static Export]
+    end
+
+    %% App Store
+    subgraph AppStore [App Store]
+        iOS[iOS App<br>React Native]
+        Android[Android App<br>React Native]
     end
 
     %% Network Entry
@@ -17,12 +21,12 @@ graph TD
 
     %% Core Services
     subgraph CoreBackend [Core Backend Engine]
-        API[Central API Hub<br>Stateless Node.js / Bun]
-        DB[(PostgreSQL Database<br>Prisma ORM)]
+        API[Central API Hub<br>Stateless Bun]
+        DB[(PostgreSQL Database<br>Drizzle)]
     end
 
     Queue[(Redis Queue<br>BullMQ / Celery)]
-    Storage[(MinIO Object Storage<br>Local NVMe S3)]
+    Storage[(SeaweedFS<br>Local NVMe S3)]
 
     %% Isolated AI Execution
     subgraph AIEngine [Independent AI Domain]
@@ -50,23 +54,11 @@ graph TD
 
 ## Directory structure
 
-```mermaid
-graph TD
-    ROOT["spaa (root)"] --> apps["apps/"]
-    ROOT --> services["services/"]
-    ROOT --> packages["packages/"]
-    ROOT --> WS[["pnpm-workspace.yaml<br>Monorepo config"]]
-    ROOT --> DC[["docker-compose.yml<br>Multi-container stack"]]
-
-    apps --> web["web/<br>SolidJS + Vite Static Export"]
-    apps --> mobile["mobile/"]
-    mobile --> android["android/<br>React Native / Expo"]
-    mobile --> ios["ios/<br>React Native / Expo"]
-    mobile --> pwa["pwa/<br>SolidJS + Vite + VitePWA"]
-
-    services --> api["api-hub/<br>JSON Stateless Controller"]
-    services --> ai["ai-workers/<br>Hermes/OpenClaw AI Processors"]
-
-    packages --> core["core-models/<br>Zod Models & TS Types"]
-    packages --> db[("database/<br>Schema + SQL Migrations")]
-```
+* web
+* pwa
+* mobile/android
+* mobile/ios
+* services/api
+* services/ai
+* packages/db
+* packages/ui
