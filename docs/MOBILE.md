@@ -2,67 +2,7 @@
 
 React Native skeleton for the chaosfairy Android / iOS apps.
 
-## Prerequisites
-
-React Native requires a Node.js/NPM toolchain, a JDK, and the Android SDK (via Android Studio) for Android builds. This project uses [ASDF](https://asdf-vm.com/) to manage Node.js and Java versions.
-
-### 1. ASDF
-
-Install ASDF (if you have not already):
-
-```bash
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-```
-
-Add ASDF to your shell (e.g. `~/.bashrc`, `~/.zshrc`):
-
-```bash
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
-```
-
-### 2. Node.js + NPM (via ASDF)
-
-Add the nodejs plugin and install the version pinned in `.tool-versions`:
-
-```bash
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install
-asdf reshim
-```
-
-Verify:
-
-```bash
-node --version   # v24.22.2
-npm --version
-```
-
-NPM ships with Node, so no separate NPM install is needed. The `engines` field in `package.json` requires Node >= 22.11.0.
-
-### 3. Java / JDK (via ASDF)
-
-Android Studio and the React Native Gradle plugin require a JDK. This project pins Java 17 (openjdk-17.0.2), which is the recommended JDK for the Android Gradle Plugin used here.
-
-```bash
-asdf plugin add java https://github.com/halcyon/asdf-java.git
-asdf install
-asdf reshim
-```
-
-Verify:
-
-```bash
-java -version
-```
-
-Set `JAVA_HOME` if your toolchain expects it:
-
-```bash
-export JAVA_HOME=$(asdf where java)
-```
-
-### 4. Android Studio
+### 5. Android Studio
 
 Download and install [Android Studio](https://developer.android.com/studio).
 
@@ -144,10 +84,11 @@ npx react-native doctor
 
 ## Version pins
 
-Node.js and Java versions are pinned in `mobile/.tool-versions` and managed by ASDF:
+Node.js, Java, and Ruby versions are pinned in `mobile/.tool-versions` and managed by ASDF:
 
 ```
 nodejs 24.22.2
+ruby 3.4.10
 java openjdk-17.0.2
 ```
 
