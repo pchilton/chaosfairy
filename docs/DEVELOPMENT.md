@@ -84,5 +84,46 @@ Install bundler and CocoaPods:
 ```bash
 gem install bundler
 gem install cocoapods
+asdf reshim
 ```
 
+
+### 5. Android Studio
+
+Download and install [Android Studio](https://developer.android.com/studio).
+
+Once installed, open Android Studio and install the required SDK components via **SDK Manager** (or `sdkmanager`):
+
+- Android SDK Platform (latest stable, e.g. API level 35)
+- Android SDK Build-Tools (latest)
+- Android Emulator
+- Google Play Intel x86 Atom_64 System Image (or any emulator system image you plan to run)
+
+Configure environment variables (add to `~/.bashrc`):
+
+```bash
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+```
+
+Then:
+
+```bash
+source ~/.bashrc
+```
+
+Verify the Android SDK is visible:
+
+```bash
+android sdk list
+```
+
+
+### 6. iOS Pods
+
+```bash
+cd mobile/ios/
+bundle exec pod install
+```
