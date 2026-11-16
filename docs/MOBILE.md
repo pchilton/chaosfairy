@@ -13,14 +13,13 @@ Once installed, open Android Studio and install the required SDK components via 
 - Android Emulator
 - Google Play Intel x86 Atom_64 System Image (or any emulator system image you plan to run)
 
-Configure environment variables (add to `~/.bashrc`, `~/.zshrc`, etc.):
+Configure environment variables (add to `~/.bashrc`):
 
 ```bash
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 ```
 
 Then:
@@ -29,16 +28,10 @@ Then:
 source ~/.bashrc
 ```
 
-Accept Android SDK licenses:
-
-```bash
-yes | sdkmanager --licenses
-```
-
 Verify the Android SDK is visible:
 
 ```bash
-sdkmanager --list_installed
+android sdk list
 ```
 
 ## Project setup
