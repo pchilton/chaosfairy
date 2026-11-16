@@ -1,4 +1,4 @@
-package com.chaosfairy
+package app.chaosfairy
 
 import android.app.Application
 import com.facebook.react.PackageList
